@@ -23,10 +23,10 @@
  23 //using namespace Ncomp;
  24 int main()
  25 {
- 26 
+ 26 //static member function called without creating an object.
  27     cout<<"\nSum:"<<Maths::sum(2,3);
  28     cout<<"\nMinus:"<<Maths::minus(2,3);
- 29 
+ 29 // now creating an object
  30     Maths m1;
  31     cout<<"\nSum:"<<m1.sum(2,3);
  32     cout<<"\nMinus:"<<m1.minus(2,3);
