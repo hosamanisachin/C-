@@ -1,0 +1,142 @@
+#include<iostream>
+
+using namespace std;
+
+//namespace Ncomp
+//{
+class A
+{	
+	public:	
+	int a; 
+	A()
+	{
+		this->a=10;
+		cout<<"\nDefl const A 10";
+	}
+	A(int x)
+	{
+		this->a=x;
+		cout<<"\nPara A";
+	}
+	void display()
+	{
+		cout<<"\nIn class A a is:"<<this->a;
+	}
+	~A()
+	{
+		this->a=0;
+		cout<<"\ndesruct A";
+	}
+};
+
+class B: virtual  public A
+{
+	public:
+	int b;
+	B()
+	{
+		this->b=20;
+		cout<<"\nDefl const B 20";
+	}
+
+	B(int a,int b):A(a)
+	{
+		this->b=b;
+		cout<<"\nPara B";
+	}
+	void display()
+	{
+		cout<<"\nInside class B b is:"<<this->b;
+		A::display();
+	}
+	~B()
+	{
+		this->b=0;
+		cout<<"\ndesruct B";
+		
+	}
+};
+
+class C: virtual public A
+{
+	public:
+	int c;
+	C()
+	{
+		this->c=30;
+		cout<<"\nDefl const C 30";
+	}
+
+	C(int a,int c):A(a)
+	{
+		this->c=c;
+		cout<<"\nPara C";
+	}
+	void display()
+	{
+		cout<<"\nInside class C c is:"<<this->c;
+		A::display();
+	}
+	~C()
+	{
+
+		this->c=0;
+		cout<<"\ndesruct C";
+	}
+};
+class D: public B ,public C
+{
+	public:
+	int d;
+	D()
+	{
+		this->d=40;
+		cout<<"\nDefl const D 40";
+	}
+
+	D(int a,int b,int c,int d):A(a),B(a,b),C(a,c)
+	{
+		this->d=d;
+		cout<<"\nPara D";
+	}
+	void display()
+	{
+		cout<<"\nInside class D d is:"<<this->d;
+		A::display();
+		B::display();
+		C::display();
+	}
+	~D()
+	{
+
+		this->d=0;
+		cout<<"\ndesruct D";
+	}
+};
+//}
+//using namespace Ncomp;
+int main()
+{
+	D d(1,2,3,4);
+	d.display();
+	return 0;
+}
+
+
+========================================
+Output
+
+Para A
+Para B
+Para C
+Para D
+Inside class D d is:4
+In class A a is:1
+Inside class B b is:2
+In class A a is:1
+Inside class C c is:3
+In class A a is:1
+desruct D
+desruct C
+desruct B
+desruct A
