@@ -1,0 +1,90 @@
+#include<iostream>
+
+using namespace std;
+
+//namespace Ncomp
+//{
+class Maths
+{	
+	public:	
+	int a; 
+	int getmath()
+	{
+		return a;
+	}
+	void setmath(int x)
+	{
+		this->a=x;;
+	}
+	void display()
+	{
+		cout<<"\nMaths:"<<this->a;
+	}
+
+};
+
+class Phy
+{
+	int p;
+	public:
+	int getphy()
+	{
+		return p;
+	}
+
+	void setphy(int y)
+	{
+		this->p=y;
+	}
+	void display()
+	{
+		cout<<"\nPhy:"<<this->p;
+	}
+};
+
+class A
+{
+	public:
+	int x,y;
+	char name[8];
+	Maths m1;
+	Phy p1;
+
+	void accept()
+	{	
+		cout<<"\nMath"<<endl;
+		cin>>x;
+		m1.setmath(x);
+		cout<<"\nPhy"<<endl;
+		cin>>y;
+		p1.setphy(y);
+		cout<<"\nName:"<<endl;
+		cin>>name;
+	}
+	void display()
+	{
+		cout<<"\nIn class A";
+		cout<<"\nName: "<<name;
+		cout<<"\nMaths: "<<m1.getmath();
+		cout<<"\nPhy: "<<p1.getphy();
+//		this->m1.display();
+//		this->p1.display();
+	}
+};
+//}
+//using namespace Ncomp;
+int main()
+{
+	A a1;
+	Maths m2;
+	Phy p2;
+//	a1.name="SACHIN"; invalid
+	m2.display();
+	p2.display();
+	//a1.m1.setmath(23); //works
+	//a1.p1.setphy(32);  //works
+	a1.accept();
+
+	a1.display();
+	return 0;
+}
